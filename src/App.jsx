@@ -36,6 +36,10 @@ function App() {
     setBanList((prevList) => [...prevList, attribute]);
     alert(attribute + " added to ban list")
   }
+
+  const removeBan = (attribute) => {
+    setBanList((prevList) => prevList.filter((item) => item !== attribute));
+  }
   
 
 
@@ -69,7 +73,7 @@ function App() {
           <h3>Ban List</h3>
           <ul>
             {banList.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li key={index} onClick={() => removeBan(item)}>{item}</li>
             ))}
           </ul>
         </div>
